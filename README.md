@@ -59,6 +59,11 @@ The following missing docstrings are currently ignored (see `.flake8`)
 * D100 Missing docstring in public module
 * D104 Missing docstring in public package
 
+### GitHub actions
+After creating a project with cookiecutter, you can find the linting GitHub workflow in `.github/workflows/`, 
+which enables standard flake8 linting.
+You still need to set add this workflow to branch protection rules for new repos.
+
 ### Sphinx
 With `Sphinx` documentation can be automatically generated as html or pdf
 from the docstrings.
