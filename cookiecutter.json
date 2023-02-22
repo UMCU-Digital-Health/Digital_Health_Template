@@ -1,0 +1,8 @@
+{
+    "full_name": "Ruben Peters",
+    "email": "r.peters-7@umcutrecht.nl",
+    "project_name": "Project_Template",
+    "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_short_description": "This is a short description of the project",
+    "version": "0.1.0"
+}
