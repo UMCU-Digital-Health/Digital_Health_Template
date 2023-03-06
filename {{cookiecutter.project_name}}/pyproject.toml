@@ -18,8 +18,8 @@ classifiers = [
 dependencies =[]
 
 [project.optional-dependencies]
-test = ["pytest"]
-dev = ["black", "flake8", "flake8-bugbear", "flake8-comprehensions", "flake8-docstrings", "flake8-eradicate"]
+test = ["pytest", "pytest-cov"]
+dev = ["black", "flake8", "flake8-bugbear", "isort"]
 
 [tool.isort]
 profile = "black"
