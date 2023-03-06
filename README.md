@@ -20,6 +20,10 @@ Version control is required for all projects. At DH we work with git and GitHub.
        'Add new About Us page' or 'Refactor tests for the order model'
     3. It should correctly complete the sentence: "If accepted, this commit will <your commit message goes here>."
 
+### GitHub actions
+After creating a project with cookiecutter, you can find the linting and unit test GitHub workflows in `.github/workflows/`, which enables standard flake8 linting and unit tests.
+You still need to set add this workflow to branch protection rules for new repos.
+
 ## Python package
 To prevent having to add the `src/` folder to the system path, it's often easier to structure your code as a Python package.
 This project template follows the `src/` package structure, where each folder in the `src` folder is a Python package.
@@ -33,14 +37,17 @@ The standard template also contains optional dependencies for testing and develo
 If your package is called `my_package` you can import it anywhere by using:
 ```{python}
 import my_package
-from my_package import my_function
+from my_package.my_module import my_function
 ```
 
 ## Specifying dependencies
 You can specify dependencies in the `pyproject.toml` either as normal dependecies, or optional dependencies (like dev and test dependencies).
-That way these packages will always be installed along with your package.
+That way these packages will always be installed along with your package. You can use version specifiers for the dependencies (see: https://peps.python.org/pep-0440/#version-specifiers). 
+It is advisable to use the compatible release specifier (`~=`). For example `~=2.2` is the same as `>=2.2,==2.*`. Using this specifier you can set your package to accept all patch changes, but not the next minor or major release.
 
-It is recommended to also use a requirements.txt file to pin specific package versions, which makes contributing and deployment easier. But don't forgot to update these versions regularly.
+It is recommended to also use a requirements.txt file to pin specific package versions `==2.2.1`, which makes contributing and deployment easier. But don't forgot to update these versions regularly.
+
+For versioning we use the PEP 440 versioning scheme (see: https://peps.python.org/pep-0440/#version-scheme).
 
 ## Virtual environment
 ### Using conda
@@ -79,10 +86,6 @@ The following missing docstrings are currently ignored (see `.setup.cfg`)
 * D100 Missing docstring in public module
 * D104 Missing docstring in public package
 
-### GitHub actions
-After creating a project with cookiecutter, you can find the linting and unit test GitHub workflows in `.github/workflows/`, which enables standard flake8 linting and unit tests.
-You still need to set add this workflow to branch protection rules for new repos.
-
 ### Sphinx
 With `Sphinx` documentation can be automatically generated as html or pdf
 from the docstrings.
@@ -91,4 +94,20 @@ Generate the documentation as follows
 
 ```{bash}
 sphinx-build -b html docs docs/_build
+```
+
+## Editor settings
+
+### VS Code
+To automatically sort imports and run black formatting on save, add the following lines to your VS Code user settings (`command + shift + p` -> `Preferences: Open user settings (JSON)`):
+
+```{json}
+"[python]": {
+   "editor.defaultFormatter": "ms-python.black-formatter",
+   "editor.formatOnSave": true,
+   "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+   },
+   "editor.formatOnType": true
+},
 ```
