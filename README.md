@@ -111,3 +111,11 @@ To automatically sort imports and run black formatting on save, add the followin
    "editor.formatOnType": true
 },
 ```
+
+## Deployment
+For deployment we use [Posit Connect](https://posit.co/products/enterprise/connect/). To deploy you app or api to Posit Connect you can use the `deploy.sh` script. The script assumes a dash application, in case of fastapi or flask you have to replace `dash` by the `fastapi`/`flask` in the deployment script. 
+The script expects two environment variables: `API_KEY` and `APP_ID`. Either use a `.env` file with `python-dotenv` or manually export those variables. When using a `.env` file for your environment variables, use the following commands to deploy your app to Posit Connect:
+```{bash}
+source .env
+source deploy.sh
+```
