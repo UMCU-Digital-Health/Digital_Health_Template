@@ -43,6 +43,12 @@ import my_package
 from my_package.my_module import my_function
 ```
 
+When working with Jupyter notebooks to prevent having to reinstall your local package after every edit, add the following lines at the top of your notebook:
+```{python}
+%load_ext autoreload
+%autoreload 2
+```
+
 ## Specifying dependencies
 You can specify dependencies in the `pyproject.toml` either as normal dependecies, or optional dependencies (like dev and test dependencies).
 That way these packages will always be installed along with your package. You can use version specifiers for the dependencies (see: https://peps.python.org/pep-0440/#version-specifiers). 
