@@ -15,11 +15,11 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
-dependencies =["rsconnect-python"]
+dependencies =[]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-cov"]
-dev = ["black", "flake8", "flake8-bugbear", "isort"]
+dev = ["black", "flake8", "flake8-bugbear", "isort", "rsconnect-python"]
 
 [tool.isort]
 profile = "black"
