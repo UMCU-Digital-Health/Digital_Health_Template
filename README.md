@@ -20,6 +20,9 @@ Version control is required for all projects. At DH we work with git and GitHub.
        'Add new About Us page' or 'Refactor tests for the order model'
     3. It should correctly complete the sentence: "If accepted, this commit will <your commit message goes here>."
 
+### Data Version Control
+For data version control we use [DVC](https://dvc.org/doc)
+
 ### GitHub actions
 After creating a project with cookiecutter, you can find the linting and unit test GitHub workflows in `.github/workflows/`, which enables standard flake8 linting and unit tests.
 You still need to set add this workflow to branch protection rules for new repos.
@@ -40,6 +43,12 @@ import my_package
 from my_package.my_module import my_function
 ```
 
+When working with Jupyter notebooks to prevent having to reinstall your local package after every edit, add the following lines at the top of your notebook:
+```{python}
+%load_ext autoreload
+%autoreload 2
+```
+
 ## Specifying dependencies
 You can specify dependencies in the `pyproject.toml` either as normal dependecies, or optional dependencies (like dev and test dependencies).
 That way these packages will always be installed along with your package. You can use version specifiers for the dependencies (see: https://peps.python.org/pep-0440/#version-specifiers). 
@@ -58,17 +67,17 @@ conda activate
 
 ### Using venv
 ```{bash}
-python3 -m venv venv
-. venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ## Documentation and styleguide
-Styleguids can be checked with linters, for instance, `flake8`.
-By default, we adhere to the PEP-8 conventions
-The line-length is automatically formatted by `black`
-and has a maximum of 88.
-The import are sorted by isort (in vscode: rightclick `sort imports` or auto organise imports on save)
+Styleguides can be checked with linters, for instance, `flake8`. By default, we adhere to the PEP-8 conventions.
+
+The line-length is automatically formatted by `black` and has a maximum of 88.
+The import are sorted by isort (in vscode: rightclick `sort imports`) or auto organise imports on save, see [Editor Settings](#editor-settings).
+
 The `setup.cfg` files contains the setup for flake8, including ignored folder (like tests/ and notebooks/).
 The configuration for black and isort can be found in `pyproject.toml`.
 
@@ -110,4 +119,29 @@ To automatically sort imports and run black formatting on save, add the followin
    },
    "editor.formatOnType": true
 },
+```
+
+## Deployment
+For deployment we use [Posit Connect](https://posit.co/products/enterprise/connect/).
+
+### Initial deployment
+Before you can use the deployment script (see [below](#deployment-script)) you need to manually deploy the app for the first time. This is neccessary to obtain an app id from Posit Connect. 
+
+Before the inital deployment you need to get your personal API Key. You API Key van be obtained by going to [Posit Connect](https://rsc.ds.umcutrecht.nl/), login and click on your acount in the top-right corner, then press `API Keys` and create a new API Key (note that you will have to save the API key in a password manager, since Posit Connect will not show your old API Keys). Never store your API Key in git or share it with anyone!
+
+After you've obtained your API key, deploy using the following command:
+```{bash}
+rsconnect deploy dash --entrypoint run.app:app --server https://rsc.ds.umcutrecht.nl/ --api-key <insert-api-key-here> .
+```
+Replace `dash` by your app or api (`flask`/`fastapi` etc.). 
+
+After deployment you can find your APP ID on [Posit Connect](https://rsc.ds.umcutrecht.nl/) by going to your app/api, go to the info pane and look for the GUID.
+Store your API Key and APP ID in a `.env` file, so subsequent deployments can be done using the deploy script. Don't add the .env file to git! (the .env file is automatically ignored)
+
+### Deployment script
+To deploy your app or api to Posit Connect after initial deployment you can use the `deploy.sh` script. The script assumes a dash application, in case of fastapi or flask you have to replace `dash` by `fastapi`/`flask` in the deployment script. 
+The script expects three environment variables: `API_KEY`, `APP_ID` and `APP_NAME`. Either use a `.env` file with `python-dotenv` or manually export those variables. When using a `.env` file for your environment variables, use the following commands to deploy your app to Posit Connect:
+```{bash}
+source .env
+source deploy.sh
 ```
