@@ -139,7 +139,7 @@ After deployment you can find your APP ID on [Posit Connect](https://rsc.ds.umcu
 Store your API Key and APP ID in a `.env` file, so subsequent deployments can be done using the deploy script. Don't add the .env file to git! (the .env file is automatically ignored)
 
 ### Deployment script
-To deploy your app or api to Posit Connect after initial deployment you can use the `deploy.sh` script. The script assumes a dash application, in case of fastapi or flask you have to replace `dash` by the `fastapi`/`flask` in the deployment script. 
+To deploy your app or api to Posit Connect after initial deployment you can use the `deploy.sh` script. The script assumes a dash application, in case of fastapi or flask you have to replace `dash` by `fastapi`/`flask` in the deployment script. 
 The script expects three environment variables: `API_KEY`, `APP_ID` and `APP_NAME`. Either use a `.env` file with `python-dotenv` or manually export those variables. When using a `.env` file for your environment variables, use the following commands to deploy your app to Posit Connect:
 ```{bash}
 source .env
