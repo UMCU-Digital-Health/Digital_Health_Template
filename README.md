@@ -23,6 +23,9 @@ Version control is required for all projects. At DH we work with git and GitHub.
 ### Data Version Control
 For data version control we use [DVC](https://dvc.org/doc)
 
+### Changelog
+Keep a changelog in your root folder (see: CHANGELOG.md). This log is meant for humans and shows which changes were made and when. Our changelog format is based on [Keep a changelog](https://keepachangelog.com/)
+
 ### GitHub actions
 After creating a project with cookiecutter, you can find the linting and unit test GitHub workflows in `.github/workflows/`, which enables standard flake8 linting and unit tests.
 You still need to set add this workflow to branch protection rules for new repos.
