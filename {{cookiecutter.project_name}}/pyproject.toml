@@ -19,7 +19,7 @@ dependencies =[]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-cov"]
-dev = ["black", "flake8", "isort", "rsconnect-python"]
+dev = ["black", "flake8", "isort", "rsconnect-python", "nbstripout"]
 
 [tool.isort]
 profile = "black"

@@ -11,6 +11,20 @@ To install the {{cookiecutter.package_name}} package use:
 pip install -e .
 ```
 
+or for development:
+
+```{bash}
+pip install -e ".[dev]"
+```
+
+This will also install the nbstripout package, which will strip out the output of notebooks when committing to git.
+
+In order to configure the package, run the command:
+
+```{bash}
+nbstripout --install
+```
+
 ## Deploying to PositConnect
 
 To deploy to PositConnect install rsconnect (`pip install rsconnect-python`) and run (in case of a dash app):
