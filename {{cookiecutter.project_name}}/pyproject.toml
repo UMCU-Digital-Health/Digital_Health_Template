@@ -19,7 +19,18 @@ dependencies =[]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-cov"]
-dev = ["black", "flake8", "isort", "rsconnect-python"]
+dev = ["black", "ruff", "isort", "rsconnect-python"]
 
 [tool.isort]
 profile = "black"
+
+[tool.ruff]
+src = ["src"]
+select = [
+    "B",  # flake8-bugbear
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "C90",  # mccabe complexity
+    "I",  # isort
+]

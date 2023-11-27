@@ -76,20 +76,21 @@ pip install -r requirements.txt
 ```
 
 ## Documentation and styleguide
-Styleguides can be checked with linters, for instance, `flake8`. By default, we adhere to the PEP-8 conventions.
+Styleguides can be checked with linters. We use `ruff` for compatibility and speed. By default, we adhere to the PEP-8 conventions and include some other checks. 
 
 The line-length is automatically formatted by `black` and has a maximum of 88.
 The import are sorted by isort (in vscode: rightclick `sort imports`) or auto organise imports on save, see [Editor Settings](#editor-settings).
 
-The `setup.cfg` files contains the setup for flake8, including ignored folder (like tests/ and notebooks/).
-The configuration for black and isort can be found in `pyproject.toml`.
+See [pyproject.toml]({{cookiecutter.project_name}}/pyproject.toml) for the `ruff`, `black` and `isort` settings.
+`ruff`, `black` and `isort` can either be installed by running `pip install -e ".[dev]"` or by using the Visual Studio Code extensions.
 
-Code can be formatted (`black`) and checked (e.g. `flake8`) and imports can be organized (`isort`) using:
+Code can be formatted (`black`), organized (`isort`) and checked (`ruff`) using:
 ```{bash}
 black src/
-flake8 src/
 isort .
+ruff check .
 ```
+This can also be done automatically, see [Editor Settings](#editor-settings). 
 
 ### Docstrings
 We adhere to PEP-8 and PEP-257 with respect to docstrings. 
