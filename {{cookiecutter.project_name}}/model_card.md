@@ -4,14 +4,13 @@
 # Model Card for {{cookiecutter.project_name}}
 
 *Briefly summarize what the model does*
+{{cookiecutter.project_short_description}}
 
 ## Model Details
 
 ### Model Description
 
 * Provide a longer summary of what this model is.*
-
-{{ model_description | default("", true) }}
 
 - **Developed by:** ...
 - **Funded by [optional]:** ...
