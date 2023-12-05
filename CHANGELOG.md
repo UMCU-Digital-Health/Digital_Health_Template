@@ -10,7 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.2] - 2023-11-29
 
 ### Added
-- Added an model card in the root
+- Added an example model card in the `docs/` folder
+
+### Changed
+- Changed to location of example dataset card to `docs/` folder
 
 ## [1.0.1] - 2023-11-24
 

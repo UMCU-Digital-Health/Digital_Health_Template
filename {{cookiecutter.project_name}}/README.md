@@ -19,7 +19,7 @@ rsconnect deploy dash --server https://rsc.ds.umcutrecht.nl/ --api-key <(user sp
 ```
 
 ## Documentation
-Dataset information can be found in the [dataset card](data/dataset_card.md).
+Dataset and model information can be found in the [dataset card](docs/dataset_card.md) and [model card](docs/model_card.md), respectively.
 
 Generate the Sphinx documentation as follows:
 
