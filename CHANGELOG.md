@@ -7,13 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.2] - 2023-11-29
+## [1.0.3] - 2023-12-05
 
 ### Added
 - Added an example model card in the `docs/` folder
 
 ### Changed
 - Changed to location of example dataset card to `docs/` folder
+
+## [1.0.2] - 2023-12-05
+
+### Added
+- Added nbstripout to automatically delete notebook outputs as git filter
+
+### Fixed
+- Moved deploy script to project folder
 
 ## [1.0.1] - 2023-11-24
 
