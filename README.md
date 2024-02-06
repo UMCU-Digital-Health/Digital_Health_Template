@@ -119,7 +119,7 @@ To automatically sort imports and run black formatting on save, add the followin
    "editor.defaultFormatter": "ms-python.black-formatter",
    "editor.formatOnSave": true,
    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
    },
    "editor.formatOnType": true
 },
