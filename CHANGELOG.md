@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.5] - 2024-04-04
+
+## Added
+- Added some shields to the README
+
+## Changed
+- Updated Python version
+- Updated GitHub actions
+- Updated tools to use ruff
+
+## Fixes
+- Fixes ruff linting setting to prevent deprecation warning
+
 ## [1.0.4] - 2024-02-02
 
 ### Fixed

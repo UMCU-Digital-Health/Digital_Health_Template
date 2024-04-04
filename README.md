@@ -1,5 +1,10 @@
 # Digital Health Template
 
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FUMCU-Digital-Health%2FDigital_Health_Template%2Fmain%2F%257B%257Bcookiecutter.project_name%257D%257D%2Fpyproject.toml)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/UMCU-Digital-Health/Digital_Health_Template/test_cookiecutter.yml)
+![GitHub License](https://img.shields.io/github/license/UMCU-Digital-Health/Digital_Health_Template)
+
 ## Introduction 
 A template repository for Digital Health projects.
 
@@ -78,16 +83,16 @@ pip install -r requirements.txt
 ## Documentation and styleguide
 Styleguides can be checked with linters. We use `ruff` for compatibility and speed. By default, we adhere to the PEP-8 conventions and include some other checks. 
 
-The line-length is automatically formatted by `black` and has a maximum of 88.
-The import are sorted by isort (in vscode: rightclick `sort imports`) or auto organise imports on save, see [Editor Settings](#editor-settings).
+The line-length is automatically formatted by `ruff` and has a maximum of 88 (default setting).
+The import are sorted by `ruff` (in vscode: rightclick `sort imports`) or auto organise imports on save, see [Editor Settings](#editor-settings).
 
-See [pyproject.toml]({{cookiecutter.project_name}}/pyproject.toml) for the `ruff`, `black` and `isort` settings.
-`ruff`, `black` and `isort` can either be installed by running `pip install -e ".[dev]"` or by using the Visual Studio Code extensions.
+See [pyproject.toml]({{cookiecutter.project_name}}/pyproject.toml) for the `ruff` settings.
+`ruff` can either be installed by running `pip install -e ".[dev]"` or by using the Visual Studio Code extensions.
 
-Code can be formatted (`black`), organized (`isort`) and checked (`ruff`) using:
+Code can be formatted, organized and checked using:
 ```{bash}
-black src/
-isort .
+ruff format src/
+ruff check --select I --fix .  # Only fix the isort errors
 ruff check .
 ```
 This can also be done automatically, see [Editor Settings](#editor-settings). 
@@ -95,7 +100,7 @@ This can also be done automatically, see [Editor Settings](#editor-settings).
 ### Docstrings
 We adhere to PEP-8 and PEP-257 with respect to docstrings. 
 This implies a line length of at most 72 characters.
-The following missing docstrings are currently ignored (see `.setup.cfg`)
+The following missing docstrings are currently ignored
 * D100 Missing docstring in public module
 * D104 Missing docstring in public package
 
@@ -112,16 +117,20 @@ sphinx-build -b html docs docs/_build
 ## Editor settings
 
 ### VS Code
-To automatically sort imports and run black formatting on save, add the following lines to your VS Code user settings (`command + shift + p` -> `Preferences: Open user settings (JSON)`):
+To automatically sort imports and run ruff formatting on save, add the following lines to your VS Code user settings (`command + shift + p` -> `Preferences: Open user settings (JSON)`):
 
 ```{json}
 "[python]": {
-   "editor.defaultFormatter": "ms-python.black-formatter",
+   "editor.defaultFormatter": "charliermarsh.ruff",
    "editor.formatOnSave": true,
    "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
    },
    "editor.formatOnType": true
+},
+"notebook.formatOnSave.enabled": true,
+"notebook.codeActionsOnSave": {
+   "source.organizeImports": true
 },
 ```
 
