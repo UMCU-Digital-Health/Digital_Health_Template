@@ -10,7 +10,7 @@ authors = [
 ]
 description = "{{cookiecutter.project_short_description}}"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.11"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
@@ -19,13 +19,15 @@ dependencies =[]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-cov"]
-dev = ["black", "ruff", "isort", "rsconnect-python", "nbstripout"]
+dev = ["ruff", "rsconnect-python", "nbstripout", "ipykernel"]
 
 [tool.isort]
 profile = "black"
 
 [tool.ruff]
 src = ["src"]
+
+[tool.ruff.lint]
 select = [
     "B",  # flake8-bugbear
     "E",  # pycodestyle errors
