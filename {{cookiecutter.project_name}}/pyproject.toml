@@ -21,9 +21,6 @@ dependencies =[]
 test = ["pytest", "pytest-cov"]
 dev = ["ruff", "rsconnect-python", "nbstripout", "ipykernel"]
 
-[tool.isort]
-profile = "black"
-
 [tool.ruff]
 src = ["src"]
 
