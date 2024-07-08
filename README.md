@@ -117,7 +117,7 @@ sphinx-build -b html docs docs/_build
 ## Editor settings
 
 ### VS Code
-To automatically sort imports and run ruff formatting on save, add the following lines to your VS Code user settings (`command + shift + p` -> `Preferences: Open user settings (JSON)`):
+To automatically sort imports and run `ruff` formatting on save, first install the [Ruff extension](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) in VS Code. Then, add the following lines to your VS Code user settings (`command + shift + p` -> `Preferences: Open user settings (JSON)`):
 
 ```{json}
 "[python]": {
