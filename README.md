@@ -130,7 +130,7 @@ To automatically sort imports and run `ruff` formatting on save, first install t
 },
 "notebook.formatOnSave.enabled": true,
 "notebook.codeActionsOnSave": {
-   "source.organizeImports": true
+   "source.organizeImports": "explicit"
 },
 ```
 
