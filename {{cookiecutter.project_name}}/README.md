@@ -17,7 +17,7 @@ This will also install the nbstripout package, which will strip out the output o
 The nbstripout package should be installed automatically when running this cookiecutter template, to check if it is installed run:
 
 ```{bash}
-nbsripout --status
+nbstripout --status
 ```
 
 If it is not installed, you can install it manually by running:
