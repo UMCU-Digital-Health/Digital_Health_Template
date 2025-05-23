@@ -70,7 +70,7 @@ Installing packages is done by using `uv add <package_name>` or `uv add <package
 That way these packages will always be installed along with your package. You can use version specifiers for the dependencies (see: https://peps.python.org/pep-0440/#version-specifiers). 
 It is advisable to use the compatible release specifier (`~=`). For example `~=2.2` is the same as `>=2.2,==2.*`. Using this specifier you can set your package to accept all patch changes, but not the next minor or major release.
 
-It is recommended to also use a requirements.txt file to pin specific package versions `==2.2.1`, which makes contributing and deployment easier. But don't forgot to update these versions regularly. You can use `uv export --no-dev --no-hashes -o requirements.txt` to automatically generate a requirements.txt file from the `pyproject.toml` file. 
+It is recommended to also use a requirements.txt file to pin specific package versions `==2.2.1`, which makes contributing and deployment easier. But don't forget to update these versions regularly. You can use `uv export --no-dev --no-hashes -o requirements.txt` to automatically generate a requirements.txt file from the `pyproject.toml` file. 
 
 For versioning we use the PEP 440 versioning scheme (see: https://peps.python.org/pep-0440/#version-scheme).
 To update the version of your package, you can either set the version in the `pyproject.toml` file or use the `uv version --bump major|minor|patch` command.
