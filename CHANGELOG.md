@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2024-05-23
+
+## Removed
+- Removed Sphinx documentation from the template
+
+## Changed
+- Changed readme to use uv instead of pip
+- Update GitHub actions to use uv
+- Default to use Python 3.12
+
+## Added
+- Added a post install script to install nbstripout and set it up
+
 ## [1.0.5] - 2024-04-04
 
 ## Added
