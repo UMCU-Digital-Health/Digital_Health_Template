@@ -9,7 +9,7 @@
 A template repository for Digital Health projects.
 
 ## Usage
-To use this cookiecutter install the `cookiecutter` package (`pip install cookiecutter`) and run:
+To use this cookiecutter install the `cookiecutter` package (`uv tool install cookiecutter`) and run:
 ```{bash}
 cookiecutter gh:UMCU-Digital-Health/Digital_Health_Template
 ```
@@ -36,16 +36,21 @@ After creating a project with cookiecutter, you can find the linting and unit te
 You still need to set add this workflow to branch protection rules for new repos.
 
 ## Python package
+We use uv as a package manager, see [uv](https://docs.astral.sh/uv/) for more information.
+
 To prevent having to add the `src/` folder to the system path, it's often easier to structure your code as a Python package.
 This project template follows the `src/` package structure, where each folder in the `src` folder is a Python package.
+
 To locally install your package use:
 ```{bash}
-pip install -e .
+uv sync
 ```
+
 This creates an editable install, which means that after you make changes to your local package, you don't have to reinstall the package to use it.
-The standard template also contains optional dependencies for testing and developing. To also install the optional dependencies use: `pip install -e ".[dev]"` or `pip install -e ".[test]"`.
+The standard template also contains optional dependencies for testing and developing, which are automatically installed by uv when running `uv sync`.
 
 If your package is called `my_package` you can import it anywhere by using:
+
 ```{python}
 import my_package
 from my_package.my_module import my_function
@@ -58,27 +63,21 @@ When working with Jupyter notebooks to prevent having to reinstall your local pa
 ```
 
 ## Specifying dependencies
-You can specify dependencies in the `pyproject.toml` either as normal dependecies, or optional dependencies (like dev and test dependencies).
+You can specify dependencies in the `pyproject.toml` either as normal dependecies, or dependency groups (like dev dependencies).
+
+Installing packages is done by using `uv add <package_name>` or `uv add <package_name> --dev` for development dependencies.
+
 That way these packages will always be installed along with your package. You can use version specifiers for the dependencies (see: https://peps.python.org/pep-0440/#version-specifiers). 
 It is advisable to use the compatible release specifier (`~=`). For example `~=2.2` is the same as `>=2.2,==2.*`. Using this specifier you can set your package to accept all patch changes, but not the next minor or major release.
 
-It is recommended to also use a requirements.txt file to pin specific package versions `==2.2.1`, which makes contributing and deployment easier. But don't forgot to update these versions regularly.
+It is recommended to also use a requirements.txt file to pin specific package versions `==2.2.1`, which makes contributing and deployment easier. But don't forget to update these versions regularly. You can use `uv export --no-dev --no-hashes -o requirements.txt` to automatically generate a requirements.txt file from the `pyproject.toml` file. 
 
 For versioning we use the PEP 440 versioning scheme (see: https://peps.python.org/pep-0440/#version-scheme).
+To update the version of your package, you can either set the version in the `pyproject.toml` file or use the `uv version --bump major|minor|patch` command.
 
 ## Virtual environment
-### Using conda
-```{bash}
-conda env create -f environment.yml
-conda activate
-```
-
-### Using venv
-```{bash}
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+Virtual environments are automatically created and managed by `uv`.
+To run commands in the virtual environment, use `uv run <command>` or manually activate the virtual environment by running `. .venv/bin/activate` (Linux) or `.\.venv\Scripts\activate` (Windows).
 
 ## Documentation and styleguide
 Styleguides can be checked with linters. We use `ruff` for compatibility and speed. By default, we adhere to the PEP-8 conventions and include some other checks. 
@@ -87,7 +86,7 @@ The line-length is automatically formatted by `ruff` and has a maximum of 88 (de
 The import are sorted by `ruff` (in vscode: rightclick `sort imports`) or auto organise imports on save, see [Editor Settings](#editor-settings).
 
 See [pyproject.toml]({{cookiecutter.project_name}}/pyproject.toml) for the `ruff` settings.
-`ruff` can either be installed by running `pip install -e ".[dev]"` or by using the Visual Studio Code extensions.
+`ruff` can either be installed by uv or by using the Visual Studio Code extensions.
 
 Code can be formatted, organized and checked using:
 ```{bash}

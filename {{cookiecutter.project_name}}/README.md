@@ -10,18 +10,17 @@ Email: {{cookiecutter.email}}
 To install the {{cookiecutter.package_name}} package use:
 
 ```{bash}
-pip install -e .
-```
-
-or for development:
-
-```{bash}
-pip install -e ".[dev]"
+uv sync
 ```
 
 This will also install the nbstripout package, which will strip out the output of notebooks when committing to git.
+The nbstripout package should be installed automatically when running this cookiecutter template, to check if it is installed run:
 
-In order to configure the package, run the command:
+```{bash}
+nbstripout --status
+```
+
+If it is not installed, you can install it manually by running:
 
 ```{bash}
 nbstripout --install
@@ -36,9 +35,3 @@ rsconnect deploy dash --server https://rsc.ds.umcutrecht.nl/ --api-key <(user sp
 
 ## Documentation
 Dataset and model information can be found in the [dataset card](docs/dataset_card.md) and [model card](docs/model_card.md), respectively.
-
-Generate the Sphinx documentation as follows:
-
-```
-sphinx-build -b html docs docs/_build
-```
