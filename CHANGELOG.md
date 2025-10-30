@@ -7,30 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.7] - 2025-10-28
+
+### Added
+- Added GitHub pull request template
+
+### Changed
+- Excluded docs folder from filecheck GH action, to prevent the action from failing when QMS docs are added as a git submodule
+
 ## [1.0.6] - 2024-05-23
 
-## Removed
+### Removed
 - Removed Sphinx documentation from the template
 
-## Changed
+### Changed
 - Changed readme to use uv instead of pip
 - Update GitHub actions to use uv
 - Default to use Python 3.12
 
-## Added
+### Added
 - Added a post install script to install nbstripout and set it up
 
 ## [1.0.5] - 2024-04-04
 
-## Added
+### Added
 - Added some shields to the README
 
-## Changed
+### Changed
 - Updated Python version
 - Updated GitHub actions
 - Updated tools to use ruff
 
-## Fixes
+### Fixes
 - Fixes ruff linting setting to prevent deprecation warning
 
 ## [1.0.4] - 2024-02-02

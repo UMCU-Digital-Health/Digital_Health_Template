@@ -2,7 +2,7 @@ name: Check for files and notebook output
 
 on:
   pull_request:
-    branches: main
+    branches: [main]
 
 jobs:
   build:
@@ -16,5 +16,7 @@ jobs:
       with:
         filesizelimit: 1MB
         token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+        exclusionPatterns: |
+          docs/**
     - name: Ensure Clean Jupyter Notebooks
       uses: ResearchSoftwareActions/EnsureCleanNotebooksAction@1.1
