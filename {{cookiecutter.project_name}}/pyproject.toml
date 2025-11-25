@@ -45,9 +45,9 @@ select = [
     "A",    # flake8-builtins (overwriting python builtins)
     "PTH",  # flake8-use-pathlib
     "N",    # pep8-naming
-    "D101", # pydocstyle: Missing DOCSTRING in class
-    "D102", # pydocstyle: Missing DOCSTRING in method
-    "D103", # pydocstyle: Missing DOCSTRING in function
+    "D101", # pydocstyle: Missing docstring in class
+    "D102", # pydocstyle: Missing docstring in method
+    "D103", # pydocstyle: Missing docstring in function
 ]
 
 [tool.ruff.lint.pep8-naming]
