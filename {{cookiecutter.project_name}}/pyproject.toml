@@ -42,7 +42,7 @@ select = [
     "C90",  # mccabe complexity
     "I",    # isort
     "ERA",  # Eradicate (commented out code)
-    "A",    # flake8-buitins (overwriting python builtins)
+    "A",    # flake8-builtins (overwriting python builtins)
     "PTH",  # flake8-use-pathlib
     "N",    # pep8-naming
     "D101", # pydocstyle: Missing DOCSTRING in class
