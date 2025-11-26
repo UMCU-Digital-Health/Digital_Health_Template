@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.8] - 2025-11-24
+
+### Added
+- Added linting rules to reduce review work in PRs
+- Added exception for using `X` as a variable name for the pep8-naming linter
+
 ## [1.0.7] - 2025-10-28
 
 ### Added

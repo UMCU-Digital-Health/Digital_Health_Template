@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "{{cookiecutter.package_name}}"
 version = "{{cookiecutter.version}}"
 authors = [
-  { name="{{cookiecutter.full_name}}", email="{{cookiecutter.email}}" },
+    { name = "{{cookiecutter.full_name}}", email = "{{cookiecutter.email}}" },
 ]
 description = "{{cookiecutter.project_short_description}}"
 readme = "README.md"
@@ -15,7 +15,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
-dependencies =[]
+dependencies = []
 
 [dependency-groups]
 dev = [
@@ -25,9 +25,7 @@ dev = [
     "pytest-cov>=5.0.0",
     "rsconnect-python>=1.24.0",
 ]
-lint = [
-    "ruff>=0.7.1",
-]
+lint = ["ruff>=0.7.1"]
 
 [tool.uv]
 default-groups = ["dev", "lint"]
@@ -37,10 +35,23 @@ src = ["src"]
 
 [tool.ruff.lint]
 select = [
-    "B",  # flake8-bugbear
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
+    "B",    # flake8-bugbear
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
     "C90",  # mccabe complexity
-    "I",  # isort
+    "I",    # isort
+    "ERA",  # Eradicate (commented out code)
+    "A",    # flake8-builtins (overwriting python builtins)
+    "PTH",  # flake8-use-pathlib
+    "N",    # pep8-naming
+    "D101", # pydocstyle: Missing docstring in class
+    "D102", # pydocstyle: Missing docstring in method
+    "D103", # pydocstyle: Missing docstring in function
 ]
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = ["X"] # Allow the use of X as variable in scikit-learn
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["D101", "D102", "D103"] # Allow unit tests without docstring
