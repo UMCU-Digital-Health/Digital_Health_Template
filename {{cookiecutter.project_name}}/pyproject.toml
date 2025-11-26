@@ -51,4 +51,7 @@ select = [
 ]
 
 [tool.ruff.lint.pep8-naming]
-ignore-names = ["X"] # Allow the use of X, y as variables in scikit-learn
+ignore-names = ["X"] # Allow the use of X as variable in scikit-learn
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["D101", "D102", "D103"] # Allow unit tests without docstring
