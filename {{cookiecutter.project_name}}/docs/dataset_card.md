@@ -74,9 +74,11 @@ This section describes the source data (e.g. news text and headlines, social med
 
 Describe the data collection process. Describe any criteria for data selection or filtering. List any key words or search terms used. If possible, include runtime information for the collection process.
 
+If data was collected for another purpose, describe the original purpose.
+
 If data was collected from other pre-existing datasets, link to source here and to their [Hugging Face version](https://huggingface.co/datasets/dataset_name).
 
-If the data was modified or normalized after being collected (e.g. if the data is word-tokenized), describe the process and the tools used.
+If the data was modified (including cleaning, updating, enrichment and aggregation) outside of version controlled code, describe the steps taken and the tools used.
 
 #### Who are the source language producers?
 
@@ -127,6 +129,8 @@ Also describe in this section if the proposed dataset contains a low-resource or
 ### Discussion of Biases
 
 Provide descriptions of specific biases that are likely to be reflected in the data, and state whether any steps were taken to reduce their impact.
+
+Specifically mention any biases involving health & safety, fundamental rights and discrimination prohibited by union law.
 
 For Wikipedia text, see for example [Dinan et al 2020 on biases in Wikipedia (esp. Table 1)](https://arxiv.org/abs/2005.00614), or [Blodgett et al 2020](https://www.aclweb.org/anthology/2020.acl-main.485/) for a more general discussion of the topic.
 

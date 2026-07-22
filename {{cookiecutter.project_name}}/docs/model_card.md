@@ -28,7 +28,7 @@
 
 ## Uses
 
-*Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model.*
+*Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. If a QMS is used when developing this model this section can be omitted.*
 
 ### Direct Use
 
