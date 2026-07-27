@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.9] - 2026-07-22
 
 ### Changed
-- Updated modelcard and dataset card to follow requirements from AI Act
+- Updated model card and dataset card to follow requirements from AI Act
 
 ## [1.0.8] - 2025-11-24
 
